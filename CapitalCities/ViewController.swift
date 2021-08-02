@@ -80,8 +80,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let capital = view.annotation as? Capital else { return }
+        guard let capitalName = capital.title else { return }
         let ok = UIAlertAction(title: "OK", style: .default)
-        showAlert(title: capital.title, message: capital.info, actions: [ok])
+        let details = UIAlertAction(title: "Details", style: .default) { [weak self] _ in
+            self?.showCapitalDetails(capitalName)
+        }
+        showAlert(title: capital.title, message: capital.info, actions: [ok, details])
+    }
+    
+    func showCapitalDetails(_ capital: String) {
+        let vc = DetailsViewController()
+        vc.city = capital
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func showAlert(title: String?, message: String? = nil, actions: [UIAlertAction]) {

@@ -11,15 +11,29 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var city: String!
+    var progressView: UIProgressView!
+    var progressBarButtonItem: UIBarButtonItem!
     
     override func loadView() {
         createView()
+        setupNavigationBar()
     }
     
     func createView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
+    }
+    
+    func setupNavigationBar() {
+        title = city
+        
+        progressView = UIProgressView(progressViewStyle: .default)
+        progressView.sizeToFit()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressView)
+        
+        // Add KVO to Web View loading
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
 
     override func viewDidLoad() {
@@ -31,6 +45,25 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         let url = URL(string: "https://en.wikipedia.org/wiki/" + city)!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
+            if webView.estimatedProgress == 1 {
+                toggleToolBarButtonItems(showProgressBar: false)
+            } else {
+                toggleToolBarButtonItems(showProgressBar: true)
+            }
+        }
+    }
+    
+    func toggleToolBarButtonItems(showProgressBar: Bool) {
+        if showProgressBar {
+            progressView.isHidden = false
+        } else {
+            progressView.isHidden = true
+        }
     }
     
     
