@@ -14,6 +14,7 @@
 		8582ADD826B794D5005B7308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8582ADD726B794D5005B7308 /* Assets.xcassets */; };
 		8582ADDB26B794D5005B7308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8582ADD926B794D5005B7308 /* LaunchScreen.storyboard */; };
 		8582ADE326B796F8005B7308 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8582ADE226B796F8005B7308 /* Capital.swift */; };
+		8582ADE526B79DAB005B7308 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8582ADE426B79DAB005B7308 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8582ADDA26B794D5005B7308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8582ADDC26B794D5005B7308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8582ADE226B796F8005B7308 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		8582ADE426B79DAB005B7308 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				8582ADD726B794D5005B7308 /* Assets.xcassets */,
 				8582ADD926B794D5005B7308 /* LaunchScreen.storyboard */,
 				8582ADDC26B794D5005B7308 /* Info.plist */,
+				8582ADE426B79DAB005B7308 /* DetailsViewController.swift */,
 			);
 			path = CapitalCities;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				8582ADCF26B794D3005B7308 /* AppDelegate.swift in Sources */,
 				8582ADE326B796F8005B7308 /* Capital.swift in Sources */,
 				8582ADD126B794D3005B7308 /* SceneDelegate.swift in Sources */,
+				8582ADE526B79DAB005B7308 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
